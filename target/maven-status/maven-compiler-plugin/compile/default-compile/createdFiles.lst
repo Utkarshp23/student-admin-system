@@ -1,0 +1,6 @@
+com\example\repositories\AdminRepository.class
+com\example\config\WebAppInitializer.class
+com\example\config\WebMvcConfig.class
+com\example\controllers\Acontroller.class
+com\example\entities\Admin.class
+com\example\entities\Login.class
