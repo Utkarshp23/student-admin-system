@@ -1,6 +1,6 @@
 D:\Projects\student-admin-system\src\main\java\com\example\config\WebAppInitializer.java
 D:\Projects\student-admin-system\src\main\java\com\example\entities\Admin.java
-D:\Projects\student-admin-system\src\main\java\com\example\controllers\Acontroller.java
+D:\Projects\student-admin-system\src\main\java\com\example\controllers\AdminController.java
 D:\Projects\student-admin-system\src\main\java\com\example\entities\Login.java
 D:\Projects\student-admin-system\src\main\java\com\example\repositories\AdminRepository.java
 D:\Projects\student-admin-system\src\main\java\com\example\config\WebMvcConfig.java

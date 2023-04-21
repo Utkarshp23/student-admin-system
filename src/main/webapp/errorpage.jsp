@@ -1,9 +1,3 @@
-<%-- 
-    Document   : errorpage
-    Created on : Apr 20, 2023, 4:34:15 PM
-    Author     : hcdc
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +6,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Invalid Username or Password!</h1>
+        <h3>Invalid Username or Password!</h3>
+        <h4>${errmsg}</h4>
     </body>
 </html>

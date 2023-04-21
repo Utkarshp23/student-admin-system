@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -21,35 +23,42 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author hcdc
  */
+
+//@XmlRootElement
+//@NamedQueries({
+//    @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a"),
+//    @NamedQuery(name = "Admin.findById", query = "SELECT a FROM Admin a WHERE a.id = :id"),
+//    @NamedQuery(name = "Admin.findByFname", query = "SELECT a FROM Admin a WHERE a.fname = :fname"),
+//    @NamedQuery(name = "Admin.findByLname", query = "SELECT a FROM Admin a WHERE a.lname = :lname")})
+
 @Entity
 @Table(name = "admin")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a"),
-    @NamedQuery(name = "Admin.findById", query = "SELECT a FROM Admin a WHERE a.id = :id"),
-    @NamedQuery(name = "Admin.findByFname", query = "SELECT a FROM Admin a WHERE a.fname = :fname"),
-    @NamedQuery(name = "Admin.findByLname", query = "SELECT a FROM Admin a WHERE a.lname = :lname")})
 public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
-    @Column(name = "fname")
+    
+//    @Basic(optional = false)
+//    @NotNull
+//    @Size(min = 1, max = 30)
+    @Column
     private String fname;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
-    @Column(name = "lname")
+    
+    
+//    @Basic(optional = false)
+//    @NotNull
+//    @Size(min = 1, max = 30)
+    @Column
     private String lname;
 
+    @Column
     private String username;
 
+    @Column
+    private String password;
     
     public String getUsername() {
         return username;
@@ -59,7 +68,7 @@ public class Admin implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
-    private String password;
+   
 
     public String getPassword() {
         return password;

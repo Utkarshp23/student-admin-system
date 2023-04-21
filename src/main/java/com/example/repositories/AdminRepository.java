@@ -22,4 +22,7 @@ public interface AdminRepository extends JpaRepository<Admin,Integer> {
     @Query("select a from Admin a where a.username=?1 and a.password=?2")
     public Optional<Admin> getAdminByUnameAndPwd(String uname, String pwd);
     
+    @Query("select a from Admin a where a.username=?1")
+    public Admin getAdminByUname(String uname);
+    
 }
