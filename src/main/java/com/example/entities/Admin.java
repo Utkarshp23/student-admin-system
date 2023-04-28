@@ -60,6 +60,17 @@ public class Admin implements Serializable {
     @Column
     private String password;
     
+     @Column
+    private String role;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+    
     public String getUsername() {
         return username;
     }
@@ -79,13 +90,16 @@ public class Admin implements Serializable {
         this.password = password;
     }
 
-    public Admin(Integer id, String fname, String lname, String username, String password) {
+    public Admin(Integer id, String fname, String lname, String username, String password, String role) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.username = username;
         this.password = password;
+        this.role = role;
     }
+
+    
 
 
     public Admin() {

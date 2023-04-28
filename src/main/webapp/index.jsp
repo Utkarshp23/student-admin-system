@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -11,26 +13,20 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <!--<div class="collapse navbar-collapse" id="navbarNav">-->
+<!--        <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">Student Admin System</a>
                 <ul class="navbar-nav justify-content-right">
                   <li class="nav-item ">
-                    <a class="nav-link" href="login">Login</a>
+                    <a class="nav-link" href="login/admin">Admin Login</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="adminsignup">Signup</a>
+                    <a class="nav-link" href="login/student">Student Login</a>
                   </li>
                 </ul>
-            <!--</div>-->
-        </nav>
-<!--        <nav class="nav nav-pills">
-            <a class="nav-item nav-link " href="login">Login</a>
-            <a class="nav-item nav-link" href="adminsignup">Signup</a>
+            </div>
         </nav>-->
-        <!--<h4>Welcome on Home page</h4>-->
-<!--        <a href="login"> Login </a><br/>
-        <a href="adminsignup"> Signup </a>-->
-        
+        <jsp:include page="/navbar.jsp"/>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     </body>
 </html>

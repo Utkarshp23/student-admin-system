@@ -22,6 +22,7 @@
         <!--<tld.version>1.1.2</tld.version>-->
         <servlets.version>3.1.0</servlets.version>
         <jsp.version>2.3.1</jsp.version>
+        <spring-security.version>5.3.4.RELEASE</spring-security.version>
     </properties>
     
     <dependencies>
@@ -253,6 +254,11 @@
             <artifactId>javax.servlet.jsp.jstl-api</artifactId>
             <version>${jstl.version}</version>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
        
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -271,6 +277,22 @@
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
             <version>1.5.7</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security.version}</version>
         </dependency>
 
     </dependencies>
