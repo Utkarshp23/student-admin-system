@@ -23,7 +23,7 @@
                 </c:when>
                 <c:when test="${user.getRole() == 'STUDENT'}">
                   <li class="nav-item ">
-                    <a class="nav-link" href="#">Manage Details</a>
+                    <a class="nav-link" href="getdetailsform">Manage Details</a>
                   </li>  
                   <li class="nav-item ">
                     <a class="nav-link" href="<c:url value="/logout" />">Logout</a>

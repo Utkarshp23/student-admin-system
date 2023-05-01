@@ -6,7 +6,7 @@
 package com.example.entities;
 
 import java.io.Serializable;
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,11 +30,29 @@ public class Student implements Serializable {
     
     @Column
     private String lname;
+    
+    
+//    delete orphaned entities from the database. An entity that is no longer attached to its parent is the definition of being an orphan. 
+//    @OneToOne(mappedBy = "student",cascade = CascadeType.PERSIST, orphanRemoval = true)
+//    private StudentDetails details;
+    
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    private StudentDetails details;
 
     public Student(Integer id, String fname, String lname, String username, String password, String role) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
+    public Student(Integer id, String fname, String lname, StudentDetails details, String username, String password, String role) {
+        this.id = id;
+        this.fname = fname;
+        this.lname = lname;
+        this.details = details;
         this.username = username;
         this.password = password;
         this.role = role;
@@ -102,6 +120,16 @@ public class Student implements Serializable {
         this.id = id;
     }
 
+    public StudentDetails getDetails() {
+        return details;
+    }
+
+    public void setDetails(StudentDetails details) {
+        this.details = details;
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;

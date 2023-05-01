@@ -1,5 +1,6 @@
 D:\Projects\student-admin-system\src\main\java\com\example\services\AdminService.java
 D:\Projects\student-admin-system\src\main\java\com\example\config\WebAppInitializer.java
+D:\Projects\student-admin-system\src\main\java\com\example\repositories\StudentDetailsRepository.java
 D:\Projects\student-admin-system\src\main\java\com\example\repositories\StudentRepository.java
 D:\Projects\student-admin-system\src\main\java\com\example\services\StudentService.java
 D:\Projects\student-admin-system\src\main\java\com\example\config\UserDetailsService1.java
@@ -8,6 +9,7 @@ D:\Projects\student-admin-system\src\main\java\com\example\controllers\StudentCo
 D:\Projects\student-admin-system\src\main\java\com\example\config\WebSecurityInitializer.java
 D:\Projects\student-admin-system\src\main\java\com\example\entities\Admin.java
 D:\Projects\student-admin-system\src\main\java\com\example\entities\Student.java
+D:\Projects\student-admin-system\src\main\java\com\example\entities\StudentDetails.java
 D:\Projects\student-admin-system\src\main\java\com\example\config\MyStudentDetails.java
 D:\Projects\student-admin-system\src\main\java\com\example\controllers\AdminController.java
 D:\Projects\student-admin-system\src\main\java\com\example\entities\Login.java

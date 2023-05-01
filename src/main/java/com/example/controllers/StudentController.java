@@ -3,9 +3,13 @@ package com.example.controllers;
 import com.example.entities.Admin;
 import com.example.entities.Login;
 import com.example.entities.Student;
+import com.example.entities.StudentDetails;
+import com.example.repositories.StudentDetailsRepository;
 import com.example.repositories.StudentRepository;
 import java.security.Principal;
 import java.util.Optional;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +17,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,6 +32,23 @@ public class StudentController {
     
     @Autowired
     StudentRepository strepo;
+    
+    @Autowired
+    StudentDetailsRepository stddetrepo;
+    
+//     @PersistenceContext
+//    private EntityManager entityManager;
+//     
+//     @Transactional
+//    public void saveStudent(Student student) {
+//        entityManager.persist(student);
+//    }
+//
+//    @Transactional
+//    public void saveStudentDetails(StudentDetails details) {
+//        entityManager.persist(details);
+//    }
+
     
     @RequestMapping(value = "/login/student")
     public ModelAndView showLoginPage(ModelMap model) {
@@ -98,4 +120,33 @@ public class StudentController {
         }  
          return "redirect:/";  
      }  
+    
+    @RequestMapping(value="/getdetailsform")
+    public ModelAndView getDetailsForm(Principal pnpl,Model model)
+    {
+//        StudentDetails std= new StudentDetails();
+//        
+        String username=pnpl.getName();
+        Student s=strepo.getStudentByUname(username);
+        model.addAttribute("student",s);
+//        std.setStudent(s);
+        return new ModelAndView("studentdetails","stddetails",new StudentDetails());
+    }
+    
+    @RequestMapping(value="/savedetails")
+    public String submitDetails(@ModelAttribute("stddetails") StudentDetails std,Principal pnpl)
+    {
+       
+//        s.setDetails(std);
+//        entityManager.persist(s);
+        String username=pnpl.getName();
+        Student s=strepo.getStudentByUname(username);
+        s.setDetails(std);
+        
+        System.out.println(s);
+//        stddetrepo.save(std);
+        s.setId(s.getId());
+        strepo.save(s);
+        return "/studenthomepage";
+    }
 }

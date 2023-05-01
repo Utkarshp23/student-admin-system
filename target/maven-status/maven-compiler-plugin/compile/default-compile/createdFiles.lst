@@ -2,6 +2,7 @@ com\example\config\MyAdminDetails.class
 com\example\config\WebAppInitializer.class
 com\example\config\WebSecurityInitializer.class
 com\example\config\WebSecurityConfig.class
+com\example\repositories\StudentDetailsRepository.class
 com\example\services\AdminService.class
 com\example\controllers\AdminController.class
 com\example\controllers\StudentController.class
@@ -13,4 +14,5 @@ com\example\config\WebMvcConfig.class
 com\example\entities\Admin.class
 com\example\entities\Login.class
 com\example\entities\Student.class
+com\example\entities\StudentDetails.class
 com\example\config\UserDetailsService1.class
