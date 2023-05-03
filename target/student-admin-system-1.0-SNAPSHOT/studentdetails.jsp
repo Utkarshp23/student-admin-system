@@ -14,7 +14,7 @@
                 <h4>Details</h4>
                 <f:form action="savedetails" modelAttribute="stddetails" >
                     
-                    <%--<f:input type="hidden" id="student" name="student" path="student" value="${student}"/>--%>
+                    <%--<f:input type="hidden" id="student" name="student" path="student" value="${user}"/>--%>
                     
                    
                     <div class="form-group">

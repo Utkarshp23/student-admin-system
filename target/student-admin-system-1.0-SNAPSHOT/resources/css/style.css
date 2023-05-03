@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 3, 2023, 11:37:48 AM
+    Author     : hcdc
+*/
+
+.pagination {
+    width: 500px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  color: #666;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
+.current-page {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+}

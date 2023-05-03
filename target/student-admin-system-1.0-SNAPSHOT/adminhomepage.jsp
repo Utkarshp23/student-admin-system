@@ -12,9 +12,7 @@
     <body>
         <jsp:include page="/navbar.jsp"/>
         <h1>Welcome Admin ${user.getUsername()}</h1>
-        <f:form action="logout" method="POST">
-            <input type="submit" value="Logout"/>
-        </f:form>
+        
         <!--<button><a href="logout">Logout</a></button>-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 

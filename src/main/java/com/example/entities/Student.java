@@ -20,8 +20,10 @@ import javax.persistence.Id;
 public class Student implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+//    @Column(name = "student_id")
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
     
@@ -36,8 +38,9 @@ public class Student implements Serializable {
 //    @OneToOne(mappedBy = "student",cascade = CascadeType.PERSIST, orphanRemoval = true)
 //    private StudentDetails details;
     
-    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
-    private StudentDetails details;
+//    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, optional=true)
+//    @PrimaryKeyJoinColumn
+//    private StudentDetails details;
 
     public Student(Integer id, String fname, String lname, String username, String password, String role) {
         this.id = id;
@@ -48,15 +51,15 @@ public class Student implements Serializable {
         this.role = role;
     }
 
-    public Student(Integer id, String fname, String lname, StudentDetails details, String username, String password, String role) {
-        this.id = id;
-        this.fname = fname;
-        this.lname = lname;
-        this.details = details;
-        this.username = username;
-        this.password = password;
-        this.role = role;
-    }
+//    public Student(Integer id, String fname, String lname, StudentDetails details, String username, String password, String role) {
+//        this.id = id;
+//        this.fname = fname;
+//        this.lname = lname;
+//        this.details = details;
+//        this.username = username;
+//        this.password = password;
+//        this.role = role;
+//    }
 
     
 
@@ -120,13 +123,13 @@ public class Student implements Serializable {
         this.id = id;
     }
 
-    public StudentDetails getDetails() {
-        return details;
-    }
-
-    public void setDetails(StudentDetails details) {
-        this.details = details;
-    }
+//    public StudentDetails getDetails() {
+//        return details;
+//    }
+//
+//    public void setDetails(StudentDetails details) {
+//        this.details = details;
+//    }
 
     
     
@@ -152,7 +155,9 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.controllers.Student[ id=" + id + " ]";
+        return "Student{" + "id=" + id + ", fname=" + fname + ", lname=" + lname + ", username=" + username + ", password=" + password + ", role=" + role + '}';
     }
+
+   
     
 }

@@ -14,5 +14,6 @@ D:\Projects\student-admin-system\src\main\java\com\example\config\MyStudentDetai
 D:\Projects\student-admin-system\src\main\java\com\example\controllers\AdminController.java
 D:\Projects\student-admin-system\src\main\java\com\example\entities\Login.java
 D:\Projects\student-admin-system\src\main\java\com\example\repositories\AdminRepository.java
+D:\Projects\student-admin-system\src\main\java\com\example\services\StudentDetailsService.java
 D:\Projects\student-admin-system\src\main\java\com\example\config\WebMvcConfig.java
 D:\Projects\student-admin-system\src\main\java\com\example\config\WebSecurityConfig.java

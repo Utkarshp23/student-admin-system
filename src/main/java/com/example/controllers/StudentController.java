@@ -6,12 +6,14 @@ import com.example.entities.Student;
 import com.example.entities.StudentDetails;
 import com.example.repositories.StudentDetailsRepository;
 import com.example.repositories.StudentRepository;
+import com.example.services.StudentService;
 import java.security.Principal;
 import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -38,6 +40,9 @@ public class StudentController {
     
 //     @PersistenceContext
 //    private EntityManager entityManager;
+    
+    @Autowired
+    StudentService sService;
 //     
 //     @Transactional
 //    public void saveStudent(Student student) {
@@ -90,6 +95,7 @@ public class StudentController {
     @RequestMapping(value="/save/student")
     public ModelAndView saveAdmin(@ModelAttribute("student") Student std,ModelMap model)
     {
+        System.out.println("STUDENT: "+std);
         Student s=strepo.getStudentByUname(std.getUsername());
         if(s!=null)
         {
@@ -97,18 +103,22 @@ public class StudentController {
              model.addAttribute("user_type", "student");
              return new ModelAndView("errorpage","errmsg",errmsg);
         }
+        std.setRole("STUDENT");
         strepo.save(std);
         model.addAttribute("user_type", "student");
        return new ModelAndView("loginpage","login",new Login());
     }
     
     @RequestMapping(value="/studenthomepage")
-    public String returnAdmHome(Model model,Principal pnpl)
+    public String returnAdmHome(HttpServletRequest request,Model model,Principal pnpl)
     {
         String username=pnpl.getName();
         Student s=strepo.getStudentByUname(username);
-        model.addAttribute("user", s);
+//        model.addAttribute("user", s);
         model.addAttribute("user_type", "student");
+        
+        HttpSession session = request.getSession(false);
+        session.setAttribute("user", s);
         return "studenthomepage";
     }
     
@@ -119,6 +129,8 @@ public class StudentController {
            new SecurityContextLogoutHandler().logout(request, response, auth);  
         }  
          return "redirect:/";  
+         
+        
      }  
     
     @RequestMapping(value="/getdetailsform")
@@ -128,25 +140,34 @@ public class StudentController {
 //        
         String username=pnpl.getName();
         Student s=strepo.getStudentByUname(username);
-        model.addAttribute("student",s);
+        model.addAttribute("user",s);
 //        std.setStudent(s);
         return new ModelAndView("studentdetails","stddetails",new StudentDetails());
     }
     
     @RequestMapping(value="/savedetails")
-    public String submitDetails(@ModelAttribute("stddetails") StudentDetails std,Principal pnpl)
+    public String submitDetails(@ModelAttribute("stddetails") StudentDetails std,Principal pnpl,Model model)
     {
        
 //        s.setDetails(std);
 //        entityManager.persist(s);
         String username=pnpl.getName();
         Student s=strepo.getStudentByUname(username);
-        s.setDetails(std);
-        
-        System.out.println(s);
-//        stddetrepo.save(std);
-        s.setId(s.getId());
-        strepo.save(s);
+//        System.out.println("--->"+std+"    "+s);
+//        std.setStudent(s);
+//        s.setDetails(std);
+//        std.setId(s.getId());
+//        System.out.println("---->"+s+"::::"+std);
+//        System.out.println(s);
+//        System.out.println(std);
+        model.addAttribute("user",s);
+//        entityManager.persist(std);
+        std.setId(s.getId());
+        stddetrepo.save(std);
+//        s.setId(s.getId());
+//         strepo.save(s);
+//        sService.saveStd(s);
+       
         return "/studenthomepage";
     }
 }

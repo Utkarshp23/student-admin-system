@@ -25,8 +25,11 @@ public class StudentDetails implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
+    
+//     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "std_det_id")
     @Id 
-    private Integer id;
+    private Integer stdDetId;
     
     @Column
     private String full_name;
@@ -48,27 +51,38 @@ public class StudentDetails implements Serializable {
 //    @OneToOne(fetch = FetchType.LAZY)
 //    @MapsId
 //    private Student student;
-    @OneToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
+//    @OneToOne(optional=false)
+//    @JoinColumn(name = "student_id")
+//    @MapsId
+//    private Student student;
 
-    public Student getStudent() {
-        return student;
-    }
+//    public Student getStudent() {
+//        return student;
+//    }
+//
+//    public void setStudent(Student student) {
+//        this.student = student;
+//    }
 
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public StudentDetails(Integer id, String full_name, String email, String dept, String phone_no, byte[] photo, Student student) {
-        this.id = id;
+    public StudentDetails(Integer id, String full_name, String email, String dept, String phone_no, byte[] photo) {
+        this.stdDetId = id;
         this.full_name = full_name;
         this.email = email;
         this.dept = dept;
         this.phone_no = phone_no;
         this.photo = photo;
-        this.student = student;
+       
     }
+
+//    public StudentDetails(Integer id, String full_name, String email, String dept, String phone_no, byte[] photo, Student student) {
+//        this.stdDetId = id;
+//        this.full_name = full_name;
+//        this.email = email;
+//        this.dept = dept;
+//        this.phone_no = phone_no;
+//        this.photo = photo;
+//        this.student = student;
+//    }
 
     
     
@@ -127,17 +141,17 @@ public class StudentDetails implements Serializable {
     
 
     public Integer getId() {
-        return id;
+        return stdDetId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.stdDetId = id;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (stdDetId != null ? stdDetId.hashCode() : 0);
         return hash;
     }
 
@@ -148,7 +162,7 @@ public class StudentDetails implements Serializable {
             return false;
         }
         StudentDetails other = (StudentDetails) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.stdDetId == null && other.stdDetId != null) || (this.stdDetId != null && !this.stdDetId.equals(other.stdDetId))) {
             return false;
         }
         return true;
@@ -156,7 +170,7 @@ public class StudentDetails implements Serializable {
 
     @Override
     public String toString() {
-        return "StudentDetails{" + "id=" + id + ", full_name=" + full_name + ", email=" + email + ", dept=" + dept + ", phone_no=" + phone_no + ", photo=" + photo + ", student=" + student + '}';
+        return "StudentDetails{" + "id=" + stdDetId + ", full_name=" + full_name + ", email=" + email + ", dept=" + dept + ", phone_no=" + phone_no + ", photo=" + photo  + '}';
     }
 
     

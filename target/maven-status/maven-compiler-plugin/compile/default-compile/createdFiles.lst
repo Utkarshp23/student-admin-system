@@ -10,6 +10,7 @@ com\example\services\StudentService.class
 com\example\config\MyStudentDetails.class
 com\example\repositories\AdminRepository.class
 com\example\repositories\StudentRepository.class
+com\example\services\StudentDetailsService.class
 com\example\config\WebMvcConfig.class
 com\example\entities\Admin.class
 com\example\entities\Login.class

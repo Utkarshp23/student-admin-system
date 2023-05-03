@@ -12,10 +12,10 @@
             <c:choose>
                 <c:when test="${user.getRole() == 'ADMIN'}">
                   <li class="nav-item ">
-                    <a class="nav-link" href="<c:url value="#" />">Students List</a>
+                    <a class="nav-link" href="<c:url value="/studs" />">Students List</a>
                   </li>
                   <li class="nav-item ">
-                    <a class="nav-link" href="<c:url value="#" />">Manage Roles</a>
+                    <a class="nav-link" href="<c:url value="/manageroles" />">Manage Roles</a>
                   </li>  
                   <li class="nav-item ">
                     <a class="nav-link" href="<c:url value="/logout" />">Logout</a>
